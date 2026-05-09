@@ -67,3 +67,80 @@ Supported subscription categories may include:
 - 🛠 Developer Tools
 - 📦 Delivery Memberships
 - And many more...
+
+## 🛠️ Why Wassub?
+Managing subscriptions manually can become stressful over time. Many users subscribe to multiple services and eventually forget:
+
+- Which subscriptions are active
+- When payments renew
+- How much they are spending monthly
+- Which services they no longer use
+
+Wassub! removes that stress by automating subscription tracking and payment reminders in a simple, organized, and user-friendly way.
+
+## 🚀 Goals of the Project
+The main goal of Wassub! is to help users:
+
+- ✅ Stay financially organized
+- ✅ Avoid unnecessary charges
+- ✅ Never miss payment deadlines
+- ✅ Gain visibility into recurring expenses
+- ✅ Simplify subscription management
+
+## 📱 Use Cases
+Wassub! is perfect for users who subscribe to services like:
+
+- Spotify
+- Netflix
+- YouTube Premium
+- Amazon Prime
+- Claude
+- ChatGPT Plus
+- Disney+
+- Canva Pro
+- Adobe Creative Cloud
+- Microsoft 365
+- Apple Music
+- Google One
+- Dropbox
+- Steam Subscriptions
+- Xbox Game Pass
+- PlayStation Plus
+- And many more...
+
+## 🔮 Future Improvements
+Potential future features may include:
+
+- 📊 Advanced spending analytics
+- ☁️ Cloud synchronization
+- 📲 Mobile application support
+- 🌙 Dark mode
+- 💱 Multi-currency support
+- 🧠 AI-powered expense insights
+- 📅 Calendar integrations
+- 🔐 Secure account authentication
+- 📤 Export subscription reports
+- 👥 Shared family subscription tracking
+
+## 🤝 Contributing
+Contributions are welcome!
+
+If you'd like to improve Wassub!, feel free to:
+1. Fork the repository
+2. Create a new branch
+3. Commit your changes
+4. Push your updates
+5. Open a pull request
+
+## 🛡️ License
+This project is licensed under the MIT License.
+Feel free to use, modify, and distribute it.
+
+## 💡 Final Thoughts
+Wassub! is built to make subscription management easier, smarter, and stress-free. Instead of worrying about forgotten renewals or hidden recurring costs, users can focus on enjoying the services they love while staying financially aware and organized.
+
+With smart reminders, centralized tracking, and a clean user experience, Wassub! aims to become the ultimate companion for managing modern digital subscriptions.
+
+## ⭐ Support the Project
+If you like this project, consider giving it a ⭐ on GitHub!
+Your support helps the project grow and improve.
