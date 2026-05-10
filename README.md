@@ -1,4 +1,6 @@
 # Wassub!
+<img width="1920" height="1080" alt="Cover" src="https://github.com/user-attachments/assets/bfc0bd17-eda4-4d66-b864-f2cfcf66d2c7" />
+
 
 ## 📌 Overview
 Wassub! is a modern subscription management application designed to help users track, organize, and manage all their recurring subscriptions in one convenient place. From entertainment platforms to productivity tools, Wassub! ensures you always know what you’re paying for, when payments are due, and how much you’re spending over time.
