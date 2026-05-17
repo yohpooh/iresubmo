@@ -81,24 +81,23 @@
   --font-sans-extrabold: sans-extrabold;
 }
 
-/*
 @layer components {
-  .tabs-icon-light {
-    @apply size-12 items-center justify-center bg-light-primary-text dark:bg-dark-primary-text;
+  .tabs-icon {
+    @apply size-12 items-center justify-center;
   }
 
-  .tabs-pill-light {
-    @apply size-12 items-center justify-center rounded-full bg-light-surface dark:bg-dark-surface;
+  .tabs-pill {
+    @apply size-12 items-center justify-center rounded-full;
   }
 
-  .tabs-active-light {
+  .tabs-active {
     @apply bg-light-primary-button dark:bg-dark-primary-button;
   }
 
   .tabs-glyph {
     @apply size-6;
   }
-
+  /*
   .home-header {
     @apply mb-2.5 flex-row items-center justify-between;
   }
@@ -454,5 +453,6 @@
   .category-chip-text-active {
     @apply text-accent;
   }
-}
+    
 */
+}
