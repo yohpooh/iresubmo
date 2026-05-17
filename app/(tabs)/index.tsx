@@ -11,7 +11,7 @@ export default function App() {
   console.log("Current theme:", colorScheme);
 
   return (
-    <SafeAreaView className="flex-1 bg-light-background dark:bg-dark-background">
+    <SafeAreaView className="flex-1 items-center justify-center bg-light-background dark:bg-dark-background">
       <View>
         <Text className="text-xl font-bold text-blue-500">
           Welcome to Nativewind!
