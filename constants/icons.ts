@@ -11,6 +11,7 @@ import dropbox from "@/assets/icons/dropbox.png";
 import figma from "@/assets/icons/figma.png";
 import github from "@/assets/icons/github.png";
 import home from "@/assets/icons/home.png";
+import appLogo from "@/assets/icons/logo.png";
 import medium from "@/assets/icons/medium.png";
 import menu from "@/assets/icons/menu.png";
 import netflixSVG from "@/assets/icons/netflix-logo-icon.svg";
@@ -55,6 +56,7 @@ export const icons = {
   primeVideo,
   youtube,
   netflix,
+  appLogo,
 } as const;
 
 export type IconKey = keyof typeof icons;

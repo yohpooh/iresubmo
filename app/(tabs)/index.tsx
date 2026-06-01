@@ -4,15 +4,15 @@ import UpcomingSubscriptionCard from "@/components/UpcomingSubscriptionCard";
 import {
   HOME_BALANCE,
   HOME_SUBSCRIPTIONS,
-  HOME_USER,
   UPCOMING_SUBSCRIPTIONS,
 } from "@/constants/data";
 import { icons } from "@/constants/icons";
-import images from "@/constants/images";
 import { colors } from "@/constants/theme";
 import "@/global.css";
 import { formatCurrency } from "@/lib/utils";
+import { useUser } from "@clerk/expo";
 import dayjs from "dayjs";
+import { Redirect } from "expo-router";
 import { styled, useColorScheme } from "nativewind";
 import { useState } from "react";
 import { FlatList, Image, Text, View } from "react-native";
@@ -26,6 +26,15 @@ export default function App() {
   const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<
     string | null
   >();
+  const { isLoaded, isSignedIn, user } = useUser();
+
+  if (!isLoaded) {
+    return null;
+  }
+
+  if (!isSignedIn) {
+    return <Redirect href="/(auth)/sign-in" />;
+  }
 
   return (
     <SafeAreaView className="flex-1 bg-light-background dark:bg-dark-background p-5">
@@ -34,8 +43,11 @@ export default function App() {
           <>
             <View className="home-header">
               <View className="home-user">
-                <Image source={images.avatar} className="home-avatar" />
-                <Text className="home-user-name">{HOME_USER.name}</Text>
+                <Image
+                  source={{ uri: user.imageUrl }}
+                  className="home-avatar"
+                />
+                <Text className="home-user-name">{user.fullName}</Text>
               </View>
 
               <View className="home-add-icon-container">
