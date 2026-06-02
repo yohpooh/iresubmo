@@ -364,7 +364,7 @@ export default function SignIn() {
                 </StyledText>
                 <Link href="/(auth)/sign-up">
                   <StyledText className="text-sm font-sans-bold text-light-primary-button dark:text-dark-primary-button">
-                    Sign Up
+                    Create an Account
                   </StyledText>
                 </Link>
               </View>
