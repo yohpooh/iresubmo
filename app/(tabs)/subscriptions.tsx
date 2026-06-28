@@ -1,3 +1,4 @@
+import CreateSubscriptionModal from "@/components/CreateSubscriptionModal";
 import SubscriptionCard from "@/components/SubscriptionCard";
 import { icons } from "@/constants/icons";
 import { colors } from "@/constants/theme";
@@ -20,9 +21,14 @@ const SafeAreaView = styled(RNSafeAreaView);
 
 const Subscriptions = () => {
   const { colorScheme } = useColorScheme();
-  const { subscriptions } = useSubscriptions();
+  const { subscriptions, addSubscription } = useSubscriptions();
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [search, setSearch] = useState("");
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const handleSubscriptionCreate = (subscription: Subscription) => {
+    addSubscription(subscription);
+  };
 
   const navigation = useNavigation();
   const router = useRouter();
@@ -56,10 +62,10 @@ const Subscriptions = () => {
           <Text className="list-title">My Subscriptions</Text>
           <Pressable
             className="home-add-icon-container"
-            onPress={() => router.push("/settings")}
+            onPress={() => setModalVisible(true)}
           >
             <Image
-              source={icons.menu}
+              source={icons.add}
               className="home-add-icon"
               style={{ tintColor: iconTint }}
             />
@@ -100,6 +106,12 @@ const Subscriptions = () => {
             }
           />
         )}
+      />
+
+      <CreateSubscriptionModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        onSubmit={handleSubscriptionCreate}
       />
     </SafeAreaView>
   );

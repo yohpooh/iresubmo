@@ -493,4 +493,64 @@
   .sub-action-btn-text {
     @apply text-sm font-sans-semibold text-light-primary-text dark:text-dark-primary-text;
   }
+
+  .insights-chart-container {
+    @apply overflow-hidden rounded-2xl bg-light-secondary-button dark:bg-dark-secondary-button px-2 pb-2 pt-4;
+  }
+
+  .insights-expense-card {
+    @apply mt-3 rounded-2xl border border-light-border dark:border-dark-border bg-light-surface dark:bg-dark-surface p-4;
+  }
+
+  .insights-expense-label {
+    @apply text-lg font-sans-bold text-light-primary-text dark:text-dark-primary-text;
+  }
+
+  .insights-expense-month {
+    @apply text-sm font-sans-medium text-light-secondary-text dark:text-dark-secondary-text;
+  }
+
+  .insights-expense-amount {
+    @apply text-xl font-sans-extrabold text-light-primary-text dark:text-dark-primary-text;
+  }
+
+  .insights-change-positive {
+    @apply text-sm font-sans-semibold text-light-success dark:text-dark-success;
+  }
+
+  .insights-change-negative {
+    @apply text-sm font-sans-semibold text-light-error dark:text-dark-error;
+  }
+
+  .insights-history-card {
+    @apply flex-row items-center gap-3 rounded-2xl bg-light-secondary-button dark:bg-dark-secondary-button p-3;
+  }
+
+  .insights-history-icon-container {
+    @apply size-12 items-center justify-center rounded-xl bg-light-surface dark:bg-dark-surface;
+  }
+
+  .insights-history-name {
+    @apply text-base font-sans-bold text-light-primary-text dark:text-dark-primary-text;
+  }
+
+  .insights-history-date {
+    @apply text-sm font-sans-medium text-light-secondary-text dark:text-dark-secondary-text;
+  }
+
+  .insights-history-price {
+    @apply text-base font-sans-bold text-light-primary-text dark:text-dark-primary-text;
+  }
+
+  .insights-history-billing {
+    @apply text-sm font-sans-medium text-light-secondary-text dark:text-dark-secondary-text;
+  }
+
+  .insights-tooltip-pill {
+    @apply rounded-full bg-light-secondary-button dark:bg-dark-secondary-button px-2 py-0.5;
+  }
+
+  .insights-tooltip-text {
+    @apply text-xs font-sans-bold text-light-primary-button dark:text-dark-primary-button;
+  }
 }

@@ -1,4 +1,5 @@
 import "@/global.css";
+import { LanguageProvider } from "@/context/LanguageContext";
 import { ClerkProvider } from "@clerk/expo";
 import { tokenCache } from "@clerk/expo/token-cache";
 import { useFonts } from "expo-font";
@@ -38,7 +39,9 @@ export default function RootLayout() {
   return (
     <PostHogProvider apiKey={posthogKey} options={{ host: posthogHost }}>
       <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-        <Stack screenOptions={{ headerShown: false }} />
+        <LanguageProvider>
+          <Stack screenOptions={{ headerShown: false }} />
+        </LanguageProvider>
       </ClerkProvider>
     </PostHogProvider>
   );

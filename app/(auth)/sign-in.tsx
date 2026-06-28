@@ -46,7 +46,7 @@ export default function SignIn() {
       });
 
       if (error) {
-        console.error("Sign-in error:", JSON.stringify(error, null, 2));
+        //console.error("Sign-in error:", JSON.stringify(error, null, 2));
         return;
       }
 
@@ -66,7 +66,7 @@ export default function SignIn() {
         setIsVerifying(true);
       }
     } catch (err) {
-      console.error("Sign-in error:", err);
+      //console.error("Sign-in error:", err);
     }
   };
 
@@ -89,10 +89,10 @@ export default function SignIn() {
           },
         });
       } else {
-        console.error("Sign-in verification not complete:", signIn);
+        //console.error("Sign-in verification not complete:", signIn);
       }
     } catch (err) {
-      console.error("Verification error:", err);
+      //console.error("Verification error:", err);
     }
   };
 

@@ -77,7 +77,7 @@ export default function SignUp() {
       });
 
       if (error) {
-        console.error("Sign-up error:", JSON.stringify(error, null, 2));
+        //console.error("Sign-up error:", JSON.stringify(error, null, 2));
         return;
       }
 
@@ -86,7 +86,7 @@ export default function SignUp() {
         setIsVerifying(true);
       }
     } catch (err) {
-      console.error("Sign-up error:", err);
+      //console.error("Sign-up error:", err);
     }
   };
 
@@ -111,10 +111,10 @@ export default function SignUp() {
           },
         });
       } else {
-        console.error("Sign-up not complete:", signUp);
+        //console.error("Sign-up not complete:", signUp);
       }
     } catch (err) {
-      console.error("Verification error:", err);
+      //console.error("Verification error:", err);
     }
   };
 
