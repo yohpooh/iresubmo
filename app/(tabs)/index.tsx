@@ -1,21 +1,19 @@
+import CreateSubscriptionModal from "@/components/CreateSubscriptionModal";
 import ListHeading from "@/components/ListHeading";
 import SubscriptionCard from "@/components/SubscriptionCard";
 import UpcomingSubscriptionCard from "@/components/UpcomingSubscriptionCard";
-import {
-  HOME_BALANCE,
-  HOME_SUBSCRIPTIONS,
-  UPCOMING_SUBSCRIPTIONS,
-} from "@/constants/data";
+import { HOME_BALANCE, UPCOMING_SUBSCRIPTIONS } from "@/constants/data";
 import { icons } from "@/constants/icons";
 import { colors } from "@/constants/theme";
+import { useSubscriptions } from "@/context/SubscriptionsContext";
 import "@/global.css";
 import { formatCurrency } from "@/lib/utils";
 import { useUser } from "@clerk/expo";
 import dayjs from "dayjs";
-import { Redirect } from "expo-router";
+import { Redirect, useRouter } from "expo-router";
 import { styled, useColorScheme } from "nativewind";
 import { useState } from "react";
-import { FlatList, Image, Text, View } from "react-native";
+import { FlatList, Image, Pressable, Text, View } from "react-native";
 import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
 
 const SafeAreaView = styled(RNSafeAreaView);
@@ -26,7 +24,19 @@ export default function App() {
   const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<
     string | null
   >();
+  const { subscriptions, addSubscription } = useSubscriptions();
+  const [modalVisible, setModalVisible] = useState(false);
   const { isLoaded, isSignedIn, user } = useUser();
+
+  const router = useRouter();
+
+  const handleAllSubscriptionsPress = () => {
+    router.push("/subscriptions");
+  };
+
+  const handleSubscriptionCreate = (subscription: Subscription) => {
+    addSubscription(subscription);
+  };
 
   if (!isLoaded) {
     return null;
@@ -50,7 +60,10 @@ export default function App() {
                 <Text className="home-user-name">{user.fullName}</Text>
               </View>
 
-              <View className="home-add-icon-container">
+              <Pressable
+                className="home-add-icon-container"
+                onPress={() => setModalVisible(true)}
+              >
                 <Image
                   source={icons.add}
                   className="home-add-icon"
@@ -61,7 +74,7 @@ export default function App() {
                         : colors.lightPrimaryText,
                   }}
                 />
-              </View>
+              </Pressable>
             </View>
 
             <View className="home-balance-card">
@@ -78,7 +91,10 @@ export default function App() {
             </View>
 
             <View className="mb-5">
-              <ListHeading title="Upcoming" />
+              <ListHeading
+                title="Upcoming"
+                onPress={() => console.log("View all upcoming subscriptions")}
+              />
               <FlatList
                 data={UPCOMING_SUBSCRIPTIONS}
                 renderItem={({ item }) => (
@@ -95,10 +111,13 @@ export default function App() {
               />
             </View>
 
-            <ListHeading title="All Subscriptions" />
+            <ListHeading
+              title="All Subscriptions"
+              onPress={handleAllSubscriptionsPress}
+            />
           </>
         )}
-        data={HOME_SUBSCRIPTIONS}
+        data={subscriptions}
         renderItem={({ item }) => (
           <SubscriptionCard
             {...item}
@@ -118,6 +137,11 @@ export default function App() {
           <Text className="home-empty-state">No subscriptions found.</Text>
         }
         contentContainerStyle={{ paddingBottom: 80 }}
+      />
+      <CreateSubscriptionModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        onSubmit={handleSubscriptionCreate}
       />
     </SafeAreaView>
   );

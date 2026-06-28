@@ -24,6 +24,8 @@ const SubscriptionCard = ({
   paymentMethod,
   startDate,
   status,
+  onCancelPress,
+  isCancelling,
 }: SubscriptionCardProps) => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
   return (
@@ -80,7 +82,7 @@ const SubscriptionCard = ({
           <View className="sub-details">
             <View className="sub-row">
               <View className="sub-row-copy">
-                <Text className="sub-label">Payment:</Text>
+                <Text className="sub-label">Payment info:</Text>
                 <Text
                   className="sub-value"
                   numberOfLines={1}
@@ -89,60 +91,40 @@ const SubscriptionCard = ({
                   {paymentMethod?.trim() || "Not specified"}
                 </Text>
               </View>
+              <Pressable className="sub-action-btn">
+                <Text className="sub-action-btn-text">Manage</Text>
+              </Pressable>
             </View>
             <View className="sub-row">
               <View className="sub-row-copy">
-                <Text className="sub-label">Category:</Text>
+                <Text className="sub-label">Plan details:</Text>
                 <Text
                   className="sub-value"
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
-                  {category?.trim() || plan?.trim() || "Not specified"}
+                  {plan?.trim() || category?.trim() || "Not specified"}
                 </Text>
               </View>
-            </View>
-            <View className="sub-row">
-              <View className="sub-row-copy">
-                <Text className="sub-label">Started:</Text>
-                <Text
-                  className="sub-value"
-                  numberOfLines={1}
-                  ellipsizeMode="tail"
-                >
-                  {startDate
-                    ? formatSubscriptionDateTime(startDate)
-                    : "Not specified"}
-                </Text>
-              </View>
-            </View>
-            <View className="sub-row">
-              <View className="sub-row-copy">
-                <Text className="sub-label">Renewal Date:</Text>
-                <Text
-                  className="sub-value"
-                  numberOfLines={1}
-                  ellipsizeMode="tail"
-                >
-                  {renewalDate
-                    ? formatSubscriptionDateTime(renewalDate)
-                    : "Not specified"}
-                </Text>
-              </View>
-            </View>
-            <View className="sub-row">
-              <View className="sub-row-copy">
-                <Text className="sub-label">Status:</Text>
-                <Text
-                  className="sub-value"
-                  numberOfLines={1}
-                  ellipsizeMode="tail"
-                >
-                  {status ? formatStatusLabel(status) : "Not specified"}
-                </Text>
-              </View>
+              <Pressable className="sub-action-btn">
+                <Text className="sub-action-btn-text">Change</Text>
+              </Pressable>
             </View>
           </View>
+          <Pressable
+            className={clsx(
+              "sub-cancel",
+              (status === "cancelled" || isCancelling) && "sub-cancel-disabled",
+            )}
+            disabled={status === "cancelled" || isCancelling}
+            onPress={onCancelPress}
+          >
+            <Text className="sub-cancel-text">
+              {status === "cancelled"
+                ? "Subscription Cancelled"
+                : "Cancel Subscription"}
+            </Text>
+          </Pressable>
         </View>
       )}
     </Pressable>
